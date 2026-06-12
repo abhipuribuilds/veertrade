@@ -13,7 +13,7 @@
     "astro": "^5.0.0"
   },
   "devDependencies": {
-    "@astrojs/tailwindcss": "^5.0.0",
+    "@astrojs/tailwind": "^6.0.0",
     "tailwindcss": "^4.0.0"
   }
 }

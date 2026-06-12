@@ -65,4 +65,4 @@ services:
 
 networks:
   veertrade:
-    external: true
+    driver: bridge

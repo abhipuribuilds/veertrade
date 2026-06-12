@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
-import tailwindcss from "@astrojs/tailwindcss";
+import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  integrations: [tailwindcss()],
+  integrations: [tailwind()],
 });

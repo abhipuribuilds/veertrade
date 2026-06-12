@@ -1,0 +1,15 @@
+.git
+.gitignore
+.gitattributes
+node_modules
+dist
+.next
+.turbo
+coverage
+*.md
+docs
+.agents
+.vscode
+.idea
+*.log
+.DS_Store
