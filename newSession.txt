@@ -1,0 +1,19 @@
+Read:
+- MASTER_PROMPT.md
+- AGENTS.md
+- PRODUCT.md
+- DESIGN.md
+- ARCHITECTURE.md
+
+Follow all documented workflows and constraints.
+
+Before generating code:
+1. Determine the appropriate feature branch.
+2. Verify you are not working on main.
+3. Explain the implementation plan.
+4. Then proceed.
+
+Agents are not allowed to create new dependencies unless they justify:
+- why it is needed
+- alternatives considered
+- impact on bundle size / maintenance
