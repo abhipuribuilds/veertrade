@@ -140,12 +140,4 @@ Every major module requires:
 
 ## Git
 
-Feature branches only.
-
-Naming:
-
-feature/*
-fix/*
-refactor/*
-
-Never commit directly to main.
+Refer: GIT_WORKFLOW.md
