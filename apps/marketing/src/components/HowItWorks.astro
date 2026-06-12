@@ -1,0 +1,45 @@
+---
+import { HOW_IT_WORKS } from "../lib/constants";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="how-it-works" class="section-muted py-24 md:py-32" aria-labelledby="how-heading">
+  <div class="container-section">
+    <SectionHeader
+      id="how-heading"
+      eyebrow="How It Works"
+      title="From idea to execution in four steps"
+      description="VeerTrade transforms your trading strategies into automated algorithms."
+    />
+
+    <div class="relative mx-auto max-w-4xl">
+      <div
+        class="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-brand/40 via-brand/20 to-transparent md:block"
+        aria-hidden="true"
+      />
+
+      <div class="flex flex-col gap-12 md:gap-16">
+        {HOW_IT_WORKS.map((step, index) => (
+          <div
+            data-reveal
+            data-reveal-delay={String(Math.min(index + 1, 6))}
+            class={`relative flex flex-col items-start gap-6 md:flex-row ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+          >
+            <div class="relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand/30 bg-brand/15 text-sm font-bold text-brand md:mx-auto">
+              {step.step}
+            </div>
+
+            <div
+              class={`glass rounded-xl p-6 md:w-2/3 ${index % 2 === 0 ? "md:ml-8" : "md:mr-8 md:text-right"}`}
+            >
+              <h3 class="mb-2 text-xl font-semibold text-text">
+                {step.title}
+              </h3>
+              <p class="text-muted">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

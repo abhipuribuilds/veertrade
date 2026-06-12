@@ -1,0 +1,67 @@
+---
+import { PRICING_PLANS } from "../lib/constants";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="pricing" class="section-muted py-24 md:py-32">
+  <div class="container-section">
+    <SectionHeader
+      eyebrow="Pricing"
+      title="Simple, transparent pricing"
+      description="Start free. Scale as you grow. No hidden fees."
+    />
+
+    <ul class="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+      {PRICING_PLANS.map((plan, index) => (
+        <li data-reveal data-reveal-delay={String(index + 1)}>
+          <article
+            class={`h-full rounded-2xl p-8 ${plan.highlighted ? "border border-[#10b981]/40 bg-[#0c0c1d]/70 ring-1 ring-[#10b981]/15 backdrop-blur-xl" : "glass"}`}
+            aria-label={`${plan.tier} plan`}
+          >
+            <p class="text-sm font-semibold uppercase tracking-wider text-[#606088]">
+              {plan.tier}
+            </p>
+            <div class="mt-4 flex items-baseline gap-1">
+              <span class="text-4xl font-bold text-[#f1f1f5]">
+                {plan.price}
+              </span>
+              {plan.period && (
+                <span class="text-sm text-[#606088]">{plan.period}</span>
+              )}
+            </div>
+            <p class="mt-2 text-sm text-[#606088]">{plan.description}</p>
+
+            <ul class="mt-6 space-y-3" role="list">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="mt-0.5 flex-shrink-0 text-[#10b981]"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span class="text-sm text-[#9494b8]">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="#"
+              class={`mt-8 flex w-full items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#06060e] active:scale-95 ${plan.highlighted ? "bg-[#10b981] text-white shadow-lg shadow-[#10b981]/20 hover:bg-[#34d399] hover:shadow-[#34d399]/20 focus:ring-[#10b981]" : "bg-[#111128] text-[#9494b8] hover:bg-[#16163a] hover:text-[#f1f1f5] focus:ring-[#28285a]"}`}
+            >
+              {plan.cta}
+            </a>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

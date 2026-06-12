@@ -1,0 +1,37 @@
+---
+export type ButtonVariant = "primary" | "ghost" | "secondary";
+export type ButtonSize = "sm" | "md" | "lg";
+
+interface Props {
+  href: string;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  label: string;
+  class?: string;
+}
+
+const { href, variant = "primary", size = "md", label, class: className = "" } = Astro.props;
+
+const base =
+  "inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg active:scale-95";
+
+const variants: Record<ButtonVariant, string> = {
+  primary:
+    "bg-brand text-white shadow-lg shadow-brand/20 hover:bg-brand-hover hover:shadow-brand-hover/20 focus:ring-brand",
+  ghost:
+    "border border-border text-muted hover:border-border-hover hover:bg-surface hover:text-text focus:ring-border-hover",
+  secondary:
+    "bg-surface-alt text-muted hover:bg-surface-hover hover:text-text focus:ring-border-hover",
+};
+
+const sizes: Record<ButtonSize, string> = {
+  sm: "px-4 py-2 text-sm",
+  md: "px-6 py-3 text-sm",
+  lg: "px-8 py-3.5 text-base",
+};
+---
+
+<a href={href} class={`${base} ${variants[variant]} ${sizes[size]} ${className}`}>
+  <slot />
+  {label}
+</a>

@@ -1,0 +1,7 @@
+# VeerTrade
+# https://veertrade.com
+
+User-agent: *
+Allow: /
+
+Sitemap: https://veertrade.com/sitemap-index.xml
