@@ -1,0 +1,17 @@
+{
+  "name": "@veertrade/ui",
+  "private": true,
+  "exports": {
+    "./*": "./src/components/*.tsx"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.5.0"
+  }
+}
