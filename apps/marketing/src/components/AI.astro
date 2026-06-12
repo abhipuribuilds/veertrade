@@ -1,0 +1,57 @@
+---
+import { AI_FEATURES } from "../lib/constants";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="ai" class="section-default py-24 md:py-32" aria-labelledby="ai-heading">
+  <div class="container-section">
+    <SectionHeader
+      id="ai-heading"
+      eyebrow="Artificial Intelligence"
+      title="AI-powered trading intelligence"
+      description="VeerTrade brings cutting-edge AI to every part of your trading workflow."
+    />
+
+    <ul class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {AI_FEATURES.map((feature, index) => (
+        <li data-reveal data-reveal-delay={String(Math.min(index + 1, 6))}>
+          <article
+            class="glass glass-hover h-full rounded-xl p-6 md:p-8"
+            aria-labelledby={`ai-${feature.icon}`}
+          >
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-brand/10">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-brand"
+                aria-hidden="true"
+              >
+                {feature.icon === "bot" && (
+                  <><rect x="3" y="11" width="18" height="10" rx="2" /><circle cx="12" cy="5" r="2" /><path d="M12 7v4" /><line x1="8" y1="16" x2="8" y2="16" /><line x1="16" y1="16" x2="16" y2="16" /></>
+                )}
+                {feature.icon === "brain" && (
+                  <><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04Z" /><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z" /></>
+                )}
+                {feature.icon === "book-open" && (
+                  <><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" /></>
+                )}
+              </svg>
+            </div>
+            <h3 id={`ai-${feature.icon}`} class="mb-2 text-lg font-semibold text-text">
+              {feature.title}
+            </h3>
+            <p class="text-sm leading-relaxed text-muted max-w-prose">
+              {feature.description}
+            </p>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

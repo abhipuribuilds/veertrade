@@ -1,0 +1,130 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const {
+  title,
+  description,
+  image = "/brand.png",
+} = Astro.props;
+
+const url = "https://veertrade.com";
+const fullImage = `${url}${image}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={url} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="algorithmic trading, Indian markets, Nifty, BankNifty, trading strategies, backtesting, Zerodha, Kite Connect" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullImage} />
+    <meta property="og:url" content={url} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImage} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify([{
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "VeerTrade",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "description": "AI-Powered Algorithmic Trading for Indian Markets.",
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": "3",
+        "offers": [
+          { "@type": "Offer", "name": "Starter", "price": "0", "priceCurrency": "INR" },
+          { "@type": "Offer", "name": "Pro", "price": "999", "priceCurrency": "INR" },
+          { "@type": "Offer", "name": "Enterprise", "price": "0", "priceCurrency": "INR" }
+        ]
+      },
+      "sameAs": [
+        "https://x.com/veertrade",
+        "https://github.com/veertrade",
+        "https://linkedin.com/company/veertrade"
+      ]
+    }, {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I connect my Zerodha account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VeerTrade uses Zerodha's official Kite Connect API. You'll be redirected to Zerodha's login page to authorize access. Your credentials never touch our servers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need coding experience to create strategies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Our visual strategy builder lets you create rules with drag-and-drop. You can also describe your idea in plain English and let our AI generate a strategy for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the backtesting engine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VeerTrade uses tick-level historical data for Indian markets. Backtests account for slippage, brokerage, and market impact to give you realistic results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data and API key secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We use industry-standard encryption. API tokens are stored encrypted at rest. We never share your data with third parties. Zerodha credentials are handled entirely by Zerodha's OAuth flow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I switch plans later?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. You can upgrade or downgrade anytime. If you upgrade, you get immediate access to new features. Downgrades take effect at the next billing cycle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my strategy loses money?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VeerTrade is a tool; you stay in full control of your risk. We prevent catastrophic loss with built-in guardrails: daily loss limits, position size limits, and a one-click kill switch. You set the parameters. We enforce them automatically."
+          }
+        }
+      ]
+    }])} />
+  </head>
+  <body class="bg-bg text-text antialiased">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-white"
+    >
+      Skip to content
+    </a>
+    <slot />
+  </body>
+</html>

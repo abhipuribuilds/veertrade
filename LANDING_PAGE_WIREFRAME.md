@@ -1,0 +1,441 @@
+# VeerTrade Landing Page — Wireframe
+
+> Phase 2 deliverable. Annotated wireframe diagrams for mobile, tablet, and desktop.
+> All dimensions in px. Tagged with component names and animation hooks.
+
+---
+
+## 1. Viewport Map
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  NAVBAR (sticky, h-16)                                        │
+│  ┌──────┐  ┌──────────────────────┐  ┌──────────────────┐    │
+│  │ LOGO │  │ Features | How It    │  │ [Start Building] │    │
+│  │      │  │ Works | AI | Pricing │  └──────────────────┘    │
+│  └──────┘  │ | FAQ               │                           │
+│            └──────────────────────┘                           │
+├──────────────────────────────────────────────────────────────┤
+│  HERO (min-h-screen)                                          │
+│  ┌────────────────────────────────────────────────────────┐   │
+│  │  Three.js Canvas (absolute, z-0)                       │   │
+│  │  ┌──────────────────────────────────────────────────┐  │   │
+│  │  │  Overlay: gradient from-zinc-950/60 → /80 (z-10) │  │   │
+│  │  └──────────────────────────────────────────────────┘  │   │
+│  │                                                        │   │
+│  │  ┌──────────────────────────────────────────────────┐  │   │
+│  │  │  Content (z-20, text-center)                     │  │   │
+│  │  │                                                    │  │   │
+│  │  │  Trade Like A Veer. (text-7xl, font-bold)         │  │   │
+│  │  │                                                    │  │   │
+│  │  │  Build. Backtest. Execute. (text-2xl, zinc-400)   │  │   │
+│  │  │                                                    │  │   │
+│  │  │  AI-Powered Algorithmic Trading for Indian         │  │   │
+│  │  │  Markets. (text-lg, zinc-500)                      │  │   │
+│  │  │                                                    │  │   │
+│  │  │  ┌──────────────┐  ┌──────────┐                    │  │   │
+│  │  │  │Start Building│  │View Demo │                    │  │   │
+│  │  │  │  Strategies  │  │          │                    │  │   │
+│  │  │  └──────────────┘  └──────────┘                    │  │   │
+│  │  └──────────────────────────────────────────────────┘  │   │
+│  └────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────┤
+│  FEATURES (py-32, bg-zinc-950)                                │
+│  ┌────────────────────────────────────────────────────────┐   │
+│  │  Section Header                                          │   │
+│  │  Features (eyebrow, text-sm, emerald-400, uppercase)     │   │
+│  │  Everything you need to trade smarter                    │   │
+│  │  (text-4xl, font-bold)                                   │   │
+│  │  From strategy creation to live execution...             │   │
+│  │  (text-lg, zinc-400, max-w-2xl)                          │   │
+│  │                                                        │   │
+│  │  ┌─────────┐ ┌─────────┐ ┌─────────┐                   │   │
+│  │  │ Card 1  │ │ Card 2  │ │ Card 3  │  ← 3 cols desktop │   │
+│  │  │ Connect  │ │ Build   │ │ Backtest│   2 cols tablet   │   │
+│  │  │ Zerodha │ │Strategy │ │Instantly│   1 col mobile     │   │
+│  │  └─────────┘ └─────────┘ └─────────┘                   │   │
+│  │  ┌─────────┐ ┌─────────┐ ┌─────────┐                   │   │
+│  │  │ Card 4  │ │ Card 5  │ │ Card 6  │                   │   │
+│  │  │ Paper   │ │ AI Gen  │ │Perf.    │                   │   │
+│  │  │ Trade   │ │Strategy │ │Analytics│                   │   │
+│  │  └─────────┘ └─────────┘ └─────────┘                   │   │
+│  └────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────┤
+│  HOW IT WORKS (py-32, bg-zinc-900/50)                         │
+│  ┌────────────────────────────────────────────────────────┐   │
+│  │  Section Header                                          │   │
+│  │  How It Works                                           │   │
+│  │  From idea to execution in four steps                   │   │
+│  │                                                        │   │
+│  │  Connect Broker ◀──▶ Create Strategy ◀──▶ Backtest ◀──▶ │   │
+│  │                        Deploy                            │   │
+│  │                                                        │   │
+│  │  [Progress connector line between steps]                │   │
+│  │                                                        │   │
+│  │  Desktop: Horizontal flow with connected circles        │   │
+│  │  Mobile:  Vertical timeline with numbered steps         │   │
+│  └────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────┤
+│  AI (py-32, bg-zinc-950)                                      │
+│  ┌────────────────────────────────────────────────────────┐   │
+│  │  Section Header                                          │   │
+│  │  Artificial Intelligence                                 │   │
+│  │  AI-powered trading intelligence                         │   │
+│  │                                                        │   │
+│  │  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐    │   │
+│  │  │ AI Strategy  │ │ AI Trade     │ │ AI Trade     │    │   │
+│  │  │ Generator    │ │ Coach        │ │ Journal      │    │   │
+│  │  │              │ │              │ │              │    │   │
+│  │  │ Text desc    │ │ Text desc    │ │ Text desc    │    │   │
+│  │  └──────────────┘ └──────────────┘ └──────────────┘    │   │
+│  │                                                        │   │
+│  │  Desktop: 3 cols  |  Tablet: 2 cols  |  Mobile: 1 col │   │
+│  └────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────┤
+│  PRICING (py-32, bg-zinc-900/50)                              │
+│  ┌────────────────────────────────────────────────────────┐   │
+│  │  Section Header                                          │   │
+│  │  Pricing                                                 │   │
+│  │  Simple, transparent pricing                             │   │
+│  │                                                        │   │
+│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐                │   │
+│  │  │ Starter  │ │   Pro    │ │Enterprise│                │   │
+│  │  │          │ │ ──────── │ │          │                │   │
+│  │  │  Free    │ │₹999/mo   │ │ Custom   │                │   │
+│  │  │          │ │          │ │          │                │   │
+│  │  │ [Btn]    │ │ [Btn]    │ │ [Btn]    │                │   │
+│  │  └──────────┘ └──────────┘ └──────────┘                │   │
+│  │                                                        │   │
+│  │  Pro card highlighted with emerald border              │   │
+│  │  Desktop: 3 cols  |  Tablet/Mobile: full-width stack   │   │
+│  └────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────┤
+│  FAQ (py-32, bg-zinc-950)                                     │
+│  ┌────────────────────────────────────────────────────────┐   │
+│  │  Section Header                                          │   │
+│  │  FAQ                                                     │   │
+│  │  Frequently asked questions                              │   │
+│  │                                                        │   │
+│  │  ┌──────────────────────────────────────────────────┐   │   │
+│  │  │ Q: How do I connect my Zerodha account?     ▼   │   │   │
+│  │  └──────────────────────────────────────────────────┘   │   │
+│  │  ┌──────────────────────────────────────────────────┐   │   │
+│  │  │ Q: Do I need coding experience?              ▼   │   │   │
+│  │  └──────────────────────────────────────────────────┘   │   │
+│  │  ┌──────────────────────────────────────────────────┐   │   │
+│  │  │ Q: How accurate is the backtesting engine?    ▼  │   │   │
+│  │  └──────────────────────────────────────────────────┘   │   │
+│  │  ┌──────────────────────────────────────────────────┐   │   │
+│  │  │ Q: Is my data and API key secure?            ▼   │   │   │
+│  │  └──────────────────────────────────────────────────┘   │   │
+│  │  ┌──────────────────────────────────────────────────┐   │   │
+│  │  │ Q: Can I switch plans later?                 ▼   │   │   │
+│  │  └──────────────────────────────────────────────────┘   │   │
+│  │  ┌──────────────────────────────────────────────────┐   │   │
+│  │  │ Q: What about losses? risk management?       ▼   │   │   │
+│  │  └──────────────────────────────────────────────────┘   │   │
+│  │                                                        │   │
+│  │  Max-w-3xl centered                                    │   │
+│  └────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────┤
+│  FOOTER (py-16, border-t border-zinc-800)                     │
+│  ┌────────────────────────────────────────────────────────┐   │
+│  │  ┌──────┐  ┌──────┐  ┌──────┐  ┌──────┐               │   │
+│  │  │Product│  │Company│  │ Legal│  │Social│               │   │
+│  │  │       │  │       │  │      │  │      │               │   │
+│  │  │Features│  │ About │  │Privacy│  │Twitter│            │   │
+│  │  │Pricing│  │ Blog  │  │Terms  │  │GitHub │            │   │
+│  │  │Integ. │  │Careers│  │Cookies│  │LinkedIn│           │   │
+│  │  │API    │  │Contact│  │GDPR   │  │YouTube│            │   │
+│  │  └──────┘  └──────┘  └──────┘  └──────┘               │   │
+│  │                                                        │   │
+│  │  Desktop: 4 cols  |  Tablet: 2 cols  |  Mobile: 1 col │   │
+│  │                                                        │   │
+│  │  ──────────────────────────────────────────────────    │   │
+│  │  © 2026 VeerTrade. All rights reserved.                │   │
+│  │  Trade Like A Veer.                                    │   │
+│  └────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 2. Mobile Layout (< 640px)
+
+```
+┌──────────────────────┐
+│ NAVBAR               │
+│ LOGO           [☰]   │
+├──────────────────────┤
+│ HERO (min-h-screen)  │
+│                       │
+│  Trade Like A Veer.   │
+│                       │
+│  Build. Backtest.     │
+│  Execute.             │
+│                       │
+│  AI-Powered...Markets │
+│                       │
+│  [Start Building   ]  │
+│  [View Demo        ]  │
+│                       │
+├──────────────────────┤
+│ FEATURES              │
+│ [             ]       │
+│ [Card 1 single col]   │
+│ [             ]       │
+│ [Card 2 single col]   │
+│ [Card 3 single col]   │
+│ ...                   │
+├──────────────────────┤
+│ HOW IT WORKS          │
+│ ① Connect Broker ─┐  │
+│                   ▼   │
+│ ② Create Strategy ┐  │
+│                   ▼   │
+│ ③ Backtest ───────┐  │
+│                   ▼   │
+│ ④ Deploy            │
+├──────────────────────┤
+│ AI                    │
+│ [AI Strategy Gen ]   │
+│ [AI Trade Coach  ]   │
+│ [AI Trade Journal]   │
+├──────────────────────┤
+│ PRICING               │
+│ [Starter         ]   │
+│ [Pro (highlighted)]  │
+│ [Enterprise      ]   │
+├──────────────────────┤
+│ FAQ                   │
+│ [Accordion items ]   │
+│ [              ]      │
+├──────────────────────┤
+│ FOOTER                │
+│ Product               │
+│ Company               │
+│ Legal                 │
+│ Social                │
+│ ─────────────────     │
+│ © 2026 VeerTrade.     │
+└──────────────────────┘
+```
+
+---
+
+## 3. Animation Hooks Map
+
+| Element | Animation | Hook |
+|---------|-----------|------|
+| Hero headline | fadeInUp + stagger | `onMount` |
+| Feature cards | fadeInUp stagger | `whileInView` |
+| How It Works steps | fadeInLeftAlt (L/R) | `whileInView` |
+| AI cards | fadeInUp stagger | `whileInView` |
+| Pricing cards | scaleIn + fadeIn | `whileInView` |
+| FAQ items | fadeInUp stagger | `whileInView` |
+| Navbar | bg transition | `onScroll` |
+| Scroll indicator | bounce | `onMount` loop |
+
+### Framer Motion Variants
+
+```typescript
+// fadeInUp
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+}
+
+// stagger container
+const stagger = {
+  visible: { transition: { staggerChildren: 0.1 } }
+}
+
+// scaleIn
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } }
+}
+```
+
+---
+
+## 4. Component Tree (Detailed)
+
+```
+BaseLayout
+├── <head> — SEOHead (title, meta, JSON-LD, preloads)
+├── <body>
+│   ├── SkipLink ("Skip to content")
+│   ├── Navbar
+│   │   ├── Logo (svg inline, links to #hero)
+│   │   ├── NavLinks
+│   │   │   ├── Features (#features)
+│   │   │   ├── How It Works (#how-it-works)
+│   │   │   ├── AI (#ai)
+│   │   │   ├── Pricing (#pricing)
+│   │   │   └── FAQ (#faq)
+│   │   ├── DesktopCTA
+│   │   └── MobileMenuToggle (hamburger → x)
+│   │       └── MobileDrawer (slide-in, links + CTA)
+│   │
+│   ├── <main id="content">
+│   │
+│   │   ├── HeroSection#hero
+│   │   │   ├── ThreeCanvas (client:only="react")
+│   │   │   │   └── ParticleScene
+│   │   │   ├── HeroContent
+│   │   │   │   ├── Headline (h1)
+│   │   │   │   ├── Subheadline (p)
+│   │   │   │   ├── SupportingText (p)
+│   │   │   │   ├── PrimaryCTA (a / Link)
+│   │   │   │   └── SecondaryCTA (a / Link)
+│   │   │   └── ScrollIndicator (↓)
+│   │   │
+│   │   ├── FeaturesSection#features
+│   │   │   ├── SectionHeader
+│   │   │   └── FeatureGrid (ul)
+│   │   │       ├── FeatureCard × 1
+│   │   │       ├── FeatureCard × 2
+│   │   │       ├── FeatureCard × 3
+│   │   │       ├── FeatureCard × 4
+│   │   │       ├── FeatureCard × 5
+│   │   │       └── FeatureCard × 6
+│   │   │
+│   │   ├── HowItWorksSection#how-it-works
+│   │   │   ├── SectionHeader
+│   │   │   └── StepTimeline
+│   │   │       ├── Step × 1 (Connect Broker)
+│   │   │       ├── ConnectorArrow
+│   │   │       ├── Step × 2 (Create Strategy)
+│   │   │       ├── ConnectorArrow
+│   │   │       ├── Step × 3 (Backtest)
+│   │   │       ├── ConnectorArrow
+│   │   │       └── Step × 4 (Deploy)
+│   │   │
+│   │   ├── AISection#ai
+│   │   │   ├── SectionHeader
+│   │   │   └── AIGrid (ul)
+│   │   │       ├── AICard × 1 (AI Strategy Generator)
+│   │   │       ├── AICard × 2 (AI Trade Coach)
+│   │   │       └── AICard × 3 (AI Trade Journal)
+│   │   │
+│   │   ├── PricingSection#pricing
+│   │   │   ├── SectionHeader
+│   │   │   └── PricingGrid (ul)
+│   │   │       ├── PricingCard × 1 (Starter)
+│   │   │       ├── PricingCard × 2 (Pro - highlighted)
+│   │   │       └── PricingCard × 3 (Enterprise)
+│   │   │
+│   │   └── FAQSection#faq
+│   │       ├── SectionHeader
+│   │       └── FAQList (dl or ul)
+│   │           ├── AccordionItem × 1
+│   │           ├── AccordionItem × 2
+│   │           ├── AccordionItem × 3
+│   │           ├── AccordionItem × 4
+│   │           ├── AccordionItem × 5
+│   │           └── AccordionItem × 6
+│   │
+│   └── Footer
+│       ├── FooterGrid
+│       │   ├── FooterColumn (Product)
+│       │   ├── FooterColumn (Company)
+│       │   ├── FooterColumn (Legal)
+│       │   └── FooterColumn (Social)
+│       └── BottomBar
+│           ├── Copyright
+│           └── Tagline
+```
+
+---
+
+## 5. Data Flow
+
+- All sections are static content — no API calls
+- Three.js scene is client-side only (`client:only="react"`)
+- Framer Motion animations via `client:load` or `client:visible`
+- Scroll-triggered nav background change via `IntersectionObserver` or Framer's `useScroll`
+- Accordion state managed locally (Astro island via React or vanilla JS)
+- Smooth scroll for anchor links (CSS `scroll-behavior: smooth` + JS polyfill)
+
+---
+
+## 6. Interaction States
+
+| Component | Hover | Focus | Active |
+|-----------|-------|-------|--------|
+| Button (primary) | `bg-emerald-400` | `ring-2 ring-emerald-500` | `scale-95` |
+| Button (ghost) | `bg-zinc-800` | `ring-2 ring-zinc-500` | `scale-95` |
+| Feature card | `border-zinc-700, -translate-y-0.5` | `ring-2 ring-emerald-500/50` | — |
+| Pricing card | `translate-y-[-4px]` | `ring-2 ring-emerald-500/50` | — |
+| Nav link | `text-zinc-100` | `ring-2 ring-emerald-500` | — |
+| Accordion | `bg-zinc-800/50` | `ring-2 ring-emerald-500/50` | — |
+| Footer link | `text-zinc-300` | `ring-2 ring-emerald-500` | — |
+
+---
+
+## 7. Glass Card Template
+
+```
+bg-zinc-900/50
+backdrop-blur-xl
+border border-zinc-800
+rounded-xl
+p-6 md:p-8
+transition-all duration-300
+hover:border-zinc-700
+hover:bg-zinc-900/80
+shadow-lg shadow-black/20
+```
+
+---
+
+## 8. Button Templates
+
+### Primary
+```
+inline-flex items-center justify-center gap-2
+px-6 py-3
+bg-emerald-500 hover:bg-emerald-400
+text-white font-medium
+rounded-lg
+transition-all duration-200
+focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-zinc-950
+active:scale-95
+```
+
+### Ghost
+```
+inline-flex items-center justify-center gap-2
+px-6 py-3
+border border-zinc-700 hover:bg-zinc-800
+text-zinc-300 hover:text-white font-medium
+rounded-lg
+transition-all duration-200
+focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2 focus:ring-offset-zinc-950
+active:scale-95
+```
+
+---
+
+## 9. Responsive Grid Map
+
+| Section | Mobile (< 640) | Tablet (640–1024) | Desktop (> 1024) |
+|---------|----------------|-------------------|-------------------|
+| Features | 1 col | 2 cols | 3 cols |
+| AI | 1 col | 2 cols | 3 cols |
+| Pricing | 1 col, stack | 2 cols (pro center) | 3 cols |
+| Footer | 1 col | 2 cols | 4 cols |
+
+---
+
+## 10. Accessibility Wireframe Notes
+
+- `SkipLink` is the first focusable element
+- Navbar uses `<nav aria-label="Main navigation">`
+- All section `<section>` elements have `aria-labelledby` matching an `h2` `id`
+- Feature cards are `<article>` with `aria-label`
+- Accordion uses `button[aria-expanded]` + `div[role="region"]`
+- Pricing CTAs are `<a>` or `<button>` with descriptive text
+- All icons have `aria-hidden="true"` + `<title>` where needed
+- Color is never the sole indicator of state

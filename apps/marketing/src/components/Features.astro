@@ -1,0 +1,63 @@
+---
+import { FEATURES } from "../lib/constants";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="features" class="section-default py-24 md:py-32" aria-labelledby="features-heading">
+  <div class="container-section">
+    <SectionHeader
+      id="features-heading"
+      eyebrow="Features"
+      title="Everything you need to trade smarter"
+      description="From strategy creation to live execution — built for Indian markets."
+    />
+
+    <ul class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {FEATURES.map((feature, index) => (
+        <li data-reveal data-reveal-delay={String(Math.min(index + 1, 6))}>
+          <article
+            class="glass glass-hover h-full rounded-xl p-6 md:p-8"
+            aria-labelledby={`feature-${feature.icon}`}
+          >
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-brand/10">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-brand"
+                aria-hidden="true"
+              >
+                {feature.icon === "plug-zap" && (
+                  <><path d="M5 12h14" /><path d="M12 5l-7 7 7 7" /></>
+                )}
+                {feature.icon === "brain-circuit" && (
+                  <><path d="M12 4a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5" /><path d="M10 14c-1.2-.7-2-2-2-3.5a4 4 0 0 1 4-4" /><path d="M12 12v4" /><path d="M10 18l2 2 2-2" /></>
+                )}
+                {(feature.icon === "test-tube" || feature.icon === "flask-conical") && (
+                  <><path d="M14 2v8l4 4v2H6v-2l4-4V2" /><path d="M10 2h4" /></>
+                )}
+                {feature.icon === "sparkles" && (
+                  <><path d="M12 3v4" /><path d="M18 12h4" /><path d="M6 12H2" /><path d="M12 21v-4" /><path d="M8 8l-2-2" /><path d="M16 16l2 2" /><path d="M16 8l2-2" /><path d="M8 16l-2 2" /></>
+                )}
+                {feature.icon === "bar-chart-3" && (
+                  <><path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" /></>
+                )}
+              </svg>
+            </div>
+            <h3 id={`feature-${feature.icon}`} class="mb-2 text-lg font-semibold text-text">
+              {feature.title}
+            </h3>
+            <p class="text-sm leading-relaxed text-muted max-w-prose">
+              {feature.description}
+            </p>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
